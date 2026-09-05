@@ -1,0 +1,7 @@
+document.getElementById('inquiry').addEventListener('submit',function(event){
+  event.preventDefault();
+  const data=new FormData(event.currentTarget);
+  const body=['성함: '+data.get('name'),'기관명: '+data.get('organization'),'연락처: '+data.get('contact'),'교육 희망일: '+(data.get('date')||'협의 희망'),'','교육 대상 및 희망 내용:',data.get('message')||'상담 요청'].join('\n');
+  window.location.href='mailto:nalynnxx@naver.com?subject='+encodeURIComponent('AI 교육 문의 | '+data.get('organization'))+'&body='+encodeURIComponent(body);
+  document.getElementById('form-status').textContent='이메일 앱에서 내용을 확인한 뒤 직접 보내주세요. 앱이 열리지 않으면 nalynnxx@naver.com으로 문의해 주세요.';
+});
