@@ -29,3 +29,17 @@ function updateProgress(){
 window.addEventListener('scroll',()=>{if(!scrollPending){scrollPending=true;requestAnimationFrame(updateProgress);}},{passive:true});
 window.addEventListener('resize',updateProgress);
 updateProgress();
+
+const menuButton=document.querySelector('.menu-toggle');
+const primaryNav=document.getElementById('primary-nav');
+const mobileMenuQuery=window.matchMedia('(max-width: 650px)');
+function setMenu(open){
+  menuButton.setAttribute('aria-expanded',String(open));
+  primaryNav.hidden=mobileMenuQuery.matches&&!open;
+}
+function adaptMenu(){setMenu(false);}
+menuButton.addEventListener('click',()=>setMenu(menuButton.getAttribute('aria-expanded')!=='true'));
+primaryNav.addEventListener('click',event=>{if(event.target.closest('a'))setMenu(false);});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&mobileMenuQuery.matches&&menuButton.getAttribute('aria-expanded')==='true'){setMenu(false);menuButton.focus();}});
+mobileMenuQuery.addEventListener('change',adaptMenu);
+adaptMenu();
