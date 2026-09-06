@@ -5,3 +5,27 @@ document.getElementById('inquiry').addEventListener('submit',function(event){
   window.location.href='mailto:nalynnxx@naver.com?subject='+encodeURIComponent('AI 교육 문의 | '+data.get('organization'))+'&body='+encodeURIComponent(body);
   document.getElementById('form-status').textContent='이메일 앱에서 내용을 확인한 뒤 직접 보내주세요. 앱이 열리지 않으면 nalynnxx@naver.com으로 문의해 주세요.';
 });
+
+const motionPreference=window.matchMedia('(prefers-reduced-motion: reduce)');
+const revealTargets=document.querySelectorAll('.section h2,.grid article,.featured,.profile-grid,.process li,.faqs details');
+let revealObserver;
+function configureMotion(){
+  if(revealObserver) revealObserver.disconnect();
+  revealTargets.forEach(el=>el.classList.remove('reveal','visible'));
+  if(motionPreference.matches||!('IntersectionObserver' in window)) return;
+  revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target);}
+  }),{threshold:0.08});
+  revealTargets.forEach((el,i)=>{el.style.setProperty('--delay',(i%3)*65+'ms');el.classList.add('reveal');revealObserver.observe(el);});
+}
+configureMotion();
+motionPreference.addEventListener('change',configureMotion);
+let scrollPending=false;
+function updateProgress(){
+  const available=document.documentElement.scrollHeight-window.innerHeight;
+  document.querySelector('.scroll-progress').style.transform='scaleX('+(available>0?Math.min(1,Math.max(0,window.scrollY/available)):0)+')';
+  scrollPending=false;
+}
+window.addEventListener('scroll',()=>{if(!scrollPending){scrollPending=true;requestAnimationFrame(updateProgress);}},{passive:true});
+window.addEventListener('resize',updateProgress);
+updateProgress();
