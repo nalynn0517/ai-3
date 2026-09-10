@@ -1,1 +1,31 @@
-{"version":2,"outputDirectory":".","cleanUrls":true}
+{
+  "version": 2,
+  "outputDirectory": ".",
+  "cleanUrls": false,
+  "rewrites": [
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/courses",
+      "destination": "/courses.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/emailjs_setting_guide",
+      "destination": "/emailjs_setting_guide.html"
+    },
+    {
+      "source": "/email_template_notify",
+      "destination": "/email_template_notify.html"
+    },
+    {
+      "source": "/email_template_autoreply",
+      "destination": "/email_template_autoreply.html"
+    }
+  ]
+}

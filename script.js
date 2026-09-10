@@ -8,6 +8,7 @@ const SITE_URL = "https://ai-3-opal.vercel.app/";
 const NOTIFY_EMAIL = "pulynn01@gmail.com";
 
 const inquiryForm = document.getElementById('inquiry');
+if (inquiryForm) {
 const consent = inquiryForm.elements.privacy_agreed;
 const submitButton = inquiryForm.querySelector('button[type="submit"]');
 const formStatus = document.getElementById('form-status');
@@ -60,6 +61,8 @@ inquiryForm.addEventListener('submit', async event => {
     inquiryForm.setAttribute('aria-busy','false');
   }
 });
+
+}
 
 const motionPreference=window.matchMedia('(prefers-reduced-motion: reduce)');
 const revealTargets=document.querySelectorAll('.section h2,.grid article,.featured,.profile-grid,.process li,.faqs details');
