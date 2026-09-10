@@ -26,6 +26,10 @@
     {
       "source": "/email_template_autoreply",
       "destination": "/email_template_autoreply.html"
+    },
+    {
+      "source": "/course-first-steps",
+      "destination": "/course-first-steps.html"
     }
   ]
 }
