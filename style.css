@@ -6,3 +6,12 @@ body{background:#fbfdff}header{position:sticky;top:0;z-index:20;max-width:none;p
 
 /* 추가된 연구소 링크와 문의 폼에만 적용합니다. */
 .lab-brand{display:inline-flex;align-items:center;gap:9px;padding:7px;border-radius:8px;flex-shrink:0;line-height:1.4;letter-spacing:0}.lab-brand:hover{background:#87dcca18}.lab-brand strong{font-size:14px;white-space:nowrap}.lab-brand small{display:block;font-size:9px;letter-spacing:.8px;white-space:nowrap}.lab-brand img{height:24px;width:auto;flex-shrink:0}header{flex-wrap:wrap;gap:14px}header>.brand{margin-right:auto}footer{flex-wrap:wrap;background:#f0f6f9}.lab-footer{flex-basis:100%;border-top:1px solid #d9e9ed;padding-top:16px;display:flex;align-items:center;gap:20px}.lab-footer>small{font-size:11px}#inquiry select{font:inherit;width:100%;padding:10px;border:1px solid #d3dfe8;border-radius:4px;background:#f5f8fa;color:#102b50;margin-top:7px}#inquiry .consent-label{display:flex;gap:10px;align-items:flex-start;margin-bottom:5px;cursor:pointer;min-height:44px}#inquiry input[type=checkbox]{width:20px;height:20px;flex:0 0 20px;margin:2px 0;accent-color:#087e78}#inquiry .privacy summary{display:inline-flex;padding:8px 0;text-decoration:underline;min-height:44px;font-size:13px}#inquiry .privacy table{border-collapse:collapse;width:100%;font-size:12px;table-layout:fixed}#inquiry .privacy th,#inquiry .privacy td{border:1px solid #d3dfe8;padding:8px;text-align:left;overflow-wrap:anywhere}#inquiry .privacy th{width:34%}#inquiry #consent-help{color:#52677b;font-size:12px}#inquiry button:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}#inquiry #form-status{color:#176b5f;overflow-wrap:anywhere}#inquiry{min-width:0}@media(max-width:1000px){header .lab-brand{flex-basis:100%;padding:0}header{gap:10px;padding-top:10px;padding-bottom:10px}}@media(max-width:650px){.lab-footer{align-items:flex-start;flex-direction:column;gap:8px}.lab-brand strong{font-size:13px}.lab-brand small{font-size:8px}#inquiry .consent-label{font-size:12px}html{scroll-padding-top:140px}}
+
+/* 푸터 배경은 화면 전체에 채우고 기존 콘텐츠 너비와 모바일 여백을 유지합니다. */
+footer.wrap {
+  max-width: none;
+  padding-inline: max(32px, calc((100% - 1116px) / 2));
+}
+@media (max-width: 900px) {
+  footer.wrap { padding-inline: 25px; }
+}
